@@ -1,0 +1,47 @@
+  db.collection('clubs').insertOne({
+        "bookclub_name":"Tunaks Tunaks",
+        "bookclub_members":[
+            {   "member_name":"Zeo",
+                "member_book_selection":
+                    {"book_name":"Book Title-lava",
+                       "book_author":"Author-SomeGuy"
+                    },
+                "member_location_selection":
+                    {"suggested_location_name":"Name of location-house",
+                     "suggested_location_address":"address of location-3rd street"
+                    }
+            },
+
+            {   "member_name":"Sarah",
+                "member_book_selection":
+                    {"book_name":"Book Title-something",
+                        "book_author":"Author-candyman"
+                    },
+                    "member_location_selection":
+                    {"suggested_location_name":"Name of location-spyhouse",
+                        "suggested_location_address":"address of location-ne,minneapolis"
+                    }
+
+            },
+            {   "member_name":"Kevin",
+                    "member_book_selection":
+                        {"book_name":"Book Title-the emperors handbook",
+                            "book_author":"Author- marcus aureilious"
+                        },
+                        "member_location_selection":
+                        {"suggested_location_name":"Name of location-the park",
+                            "suggested_location_address":"address of location-minneapolis"
+                        }
+
+            },
+            {   "member_name":"Adrienne",
+                    "member_book_selection":
+                    {"book_name":"Book Title",
+                        "book_author":"Author"
+                    },
+                    "member_location_selection":
+                    {"suggested_location_name":"Name of location",
+                        "suggested_location_address":"address of location"
+                    }
+
+            }]

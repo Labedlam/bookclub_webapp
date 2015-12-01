@@ -1,0 +1,33 @@
+<div class="container">
+<div class="text-center">
+    <p>Vote for A book</p>
+</div>
+
+
+    <div ng-repeat="person in bookclub" flex="100" layout="column">
+        <md-card ng-repeat="member in person.bookclub_members">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{member.member_name}}</span>
+                    <span class="md-subhead">title:{{member.member_book_selection.book_name}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>Vote</md-button>
+
+            </md-card-actions>
+        </md-card>
+        <md-card>
+
+
+<!--<div ng-repeat="person in bookclub">-->
+    <!--<div class="row">-->
+        <!--<p ng-repeat="member in person.bookclub_members">{{member.member_name}}</p>-->
+
+
+    <!--</div>-->
+</div>
+</div>

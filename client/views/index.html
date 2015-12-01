@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.css.map">
+    <link rel="stylesheet" href="/vendors/angular-material.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+
+</head>
+<body>
+
+        <header ng-include="'/assets/views/templates/header.html'"></header>
+        <header ng-include="'/assets/views/templates/nav.html'"></header>
+
+        <main ng-view></main>
+
+        <header ng-include="'/assets/views/templates/footer.html'"></header>
+
+
+    <!--SCRIPTS-->
+    <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="/vendors/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-aria.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-material.min.js"></script>
+
+    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/factories/data.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/controllers/controller.min.js"></script>
+
+</body>
+</html>

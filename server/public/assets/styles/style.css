@@ -1,0 +1,19 @@
+.container{
+
+    display:inline-block;
+}
+.headBlock{
+
+    display: inline-block;
+    background: #f5f5f5
+}
+
+.footerBlock{
+
+    display: inline-block;
+    text-align:center;
+}
+
+/*.md-subhead{*/
+    /*display: block;*/
+/*}*/

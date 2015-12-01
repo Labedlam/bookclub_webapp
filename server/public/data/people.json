@@ -1,0 +1,16 @@
+{
+  "people" :[
+    {
+      "name" : "Scott Bromander",
+      "location" : "Bloomington"
+    },
+    {
+      "name" : "Mark Hurlburt",
+      "location" : "Minneapolis"
+    },
+    {
+      "name" : "Kris Szafranski",
+      "location" : "Richfield"
+    }
+  ]
+}
