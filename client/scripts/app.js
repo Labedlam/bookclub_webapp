@@ -17,5 +17,6 @@ myApp.config(['$routeProvider', function($routeProvider){
             templateUrl: "/assets/views/routes/footerRoute.html",
             controller: "AnotherController"
         })
+
         .otherwise('/headerRoute');
 }]);

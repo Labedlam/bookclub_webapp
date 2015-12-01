@@ -5,7 +5,7 @@
 
 
     <div ng-repeat="person in bookclub" flex="100" layout="column">
-        <md-card ng-repeat="member in person.bookclub_members">
+        <md-card ng-repeat="member in person.bookclub_members" >
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">{{member.member_name}}</span>
@@ -15,8 +15,15 @@
                     <div class="md-media-sm card-media"></div>
                 </md-card-title-media>
             </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button>Vote</md-button>
+            <md-card-actions>
+
+                <div layout-fill layout="column"  class="inset" >
+                    <md-button ng-click="showCustomToast()" >Vote</md-button>
+                    <div id="toastBounds" >
+                    </div>
+                </div>
+
+
 
             </md-card-actions>
         </md-card>
@@ -31,3 +38,5 @@
     <!--</div>-->
 </div>
 </div>
+
+<!--for the md-card-action(it was there previously) =layout="row" layout-align="end center"-->

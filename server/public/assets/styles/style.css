@@ -14,6 +14,26 @@
     text-align:center;
 }
 
+
+.myApp md-fab-toolbar.md-right md-fab-trigger.align-with-button {
+    left: 7px;
+    display:block;
+}
+
+.toast1 {
+    margin-left: auto;
+    margin-right: auto;
+    background-color:black;
+}
+
+#closeToastBut{
+     background-color: darkred;
+ }
+
+#castVoteBut{
+    background-color:darkgreen;
+}
+
 /*.md-subhead{*/
     /*display: block;*/
 /*}*/

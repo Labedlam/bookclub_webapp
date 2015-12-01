@@ -1,37 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <title>Express / Passport</title>
 
-    <!--STYLES-->
     <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.css.map">
-    <link rel="stylesheet" href="/vendors/angular-material.min.css">
     <link rel="stylesheet" href="/assets/styles/style.css">
 
-</head>
-<body>
-
-        <header ng-include="'/assets/views/templates/header.html'"></header>
-        <header ng-include="'/assets/views/templates/nav.html'"></header>
-
-        <main ng-view></main>
-
-        <header ng-include="'/assets/views/templates/footer.html'"></header>
-
-
-    <!--SCRIPTS-->
-    <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
-    <script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>
-
-    <script type="text/javascript" src="/vendors/angular-animate.min.js"></script>
-    <script type="text/javascript" src="/vendors/angular-aria.min.js"></script>
-    <script type="text/javascript" src="/vendors/angular-material.min.js"></script>
-
+    <!--<script type="text/javascript" src="/vendors/jquery/dist/jquery.min.js"></script>-->
     <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
-    <script type="text/javascript" src="/assets/scripts/factories/data.min.js"></script>
-    <script type="text/javascript" src="/assets/scripts/controllers/controller.min.js"></script>
+</head>
 
+<body>
+<div class="instructions">
+    <div class="container">
+        <h1 class="lead">Passport Login</h1>
+    </div>
+</div>
+<div class="container">
+    <form action="/" method="post">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username"/>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password"/>
+        </div>
+        <div>
+            <input type="submit" value="Log In"/>
+            <a href="/assets/views/register.html">Register</a>
+        </div>
+    </form>
+
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" ng-app="myApp">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+
+    <!--&lt;!&ndash;STYLES&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="/vendors/bootstrap/bootstrap.css.map">-->
+    <!--<link rel="stylesheet" href="/vendors/angular-material.min.css">-->
+    <!--<link rel="stylesheet" href="/assets/styles/style.css">-->
+
+<!--</head>-->
+<!--<body>-->
+
+        <!--<header ng-include="'/assets/views/templates/header.html'"></header>-->
+        <!--<header ng-include="'/assets/views/templates/nav.html'"></header>-->
+
+        <!--<main ng-view></main>-->
+
+        <!--<header ng-include="'/assets/views/templates/footer.html'"></header>-->
+
+
+    <!--&lt;!&ndash;SCRIPTS&ndash;&gt;-->
+    <!--<script type="text/javascript" src="/vendors/angular/angular.min.js"></script>-->
+    <!--<script type="text/javascript" src="/vendors/angular-route/angular-route.min.js"></script>-->
+
+    <!--<script type="text/javascript" src="/vendors/angular-animate.min.js"></script>-->
+    <!--<script type="text/javascript" src="/vendors/angular-aria.min.js"></script>-->
+    <!--<script type="text/javascript" src="/vendors/angular-material.min.js"></script>-->
+
+    <!--<script type="text/javascript" src="/assets/scripts/app.min.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/scripts/factories/data.min.js"></script>-->
+    <!--<script type="text/javascript" src="/assets/scripts/controllers/controller.min.js"></script>-->
+
+<!--</body>-->
+<!--</html>-->
