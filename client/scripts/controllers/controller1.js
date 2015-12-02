@@ -6,6 +6,7 @@ myApp.controller('BaseController', ["$scope", "DataService","$mdToast","$documen
     $scope.dataService = DataService;
     $scope.bookclub=[];
 
+
     if($scope.dataService.bookclubData() === undefined){
         $scope.dataService.retrieveData().then(function (){
             $scope.bookclub=$scope.dataService.bookclubData();
@@ -40,49 +41,48 @@ myApp.controller('BaseController', ["$scope", "DataService","$mdToast","$documen
     }
 
 
-    $scope.showCustomToast = function() {
-        $mdToast.show({
-            controller: 'BaseController',
-            templateUrl: 'templates/toast-template.html',
-            parent : $document[0].querySelector('#toastBounds'),
-            hideDelay: 100000,
-            position: $scope.getToastPosition()
+    //$scope.showCustomToast = function($index) {
+    //    $mdToast.show({
+    //        controller: 'BaseController',
+    //        templateUrl: 'templates/toast-template.html',
+    //        parent : $document[0].querySelector('#toastBounds'),
+    //        hideDelay: 100000,
+    //        position: $scope.getToastPosition()
+    //
+    //    });
+    //    $scope.selectedIndex=$index;
+    //
+    //
+    //};
 
+    $scope.showActionToast = function($index) {
+        var toast = $mdToast.simple()
+            .content('Are You Sure You Want To Vote For this Book?')
+            .action('ok')
+            .highlightAction(true)
+                .parent( $document[0].querySelector('#toastBounds'))
+            .hideDelay( 100000)
+            .position($scope.getToastPosition());
+        $mdToast.show(toast).then(function(response) {
+            if ( response == 'ok' ) {
+                $scope.selectedIndex=$index;
+            }
         });
     };
 
-        //var toast = $mdToast.simple()
-        //    .textContent('Action Toast!')
-        //    .action('OK')
-        //    .highlightAction(false)
-        //    .position($scope.getToastPosition());
-        //$mdToast.show(toast).then(function(response) {
-        //    if ( response == 'ok' ) {
-        //        alert('You clicked \'OK\'.');
-        //    }
-        //});
 
     $scope.closeToast = function() {
         $mdToast.hide();
     };
-
-    $scope.castVote = function(){
-        console.log("I'm doing something")
-
-    };
+    //
+    //$scope.castVote = function(){
+    //    console.log("Here is the castVote click",$scope.cardClicked)
+    //
+    //};
 
 }]);
 
-//
-//myApp.controller('ToastCtrl', ["$scope", "$mdToast", function($scope, $mdToast) {
-//    $scope.closeToast = function() {
-//        $mdToast.hide();
-//    };
-//
-//    $scope.castVote = function(){
-//
-//    };
-//}]);
+
 
 //This controller is for getting data about the bookclub to look at locations
 
