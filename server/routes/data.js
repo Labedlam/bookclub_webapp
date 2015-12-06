@@ -4,24 +4,25 @@
 var express = require('express');
 var router = express.Router();
 var mongoose= require('mongoose');
-var Schema=mongoose.Schema;
+var Schema = mongoose.Schema;
+var User = require('../models/user');
 
 
-//Get bookclub data
-mongoose.model('BookClub', new Schema({"bookclub_name": String, "bookclub_members":Array}, {collection: 'clubs'}));
-var BookClub = mongoose.model('BookClub');
-
-router.get('/', function(req, res){
+router.get('/allusers', function(req, res){
 
 
-        BookClub.find({}, function(err, data){
+        User.find({}, function(err, data){
             if(err){
                 console.log("ERROR! : ", err);
             }
             res.send(data);
         });
 
+
+
 });
+
+
 
 module.exports = router;
 

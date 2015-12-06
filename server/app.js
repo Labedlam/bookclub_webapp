@@ -12,7 +12,10 @@ var session = require('express-session');
 var register = require('./routes/register');
 var user = require('./routes/user');
 var data = require('./routes/data');
-var index=require('./routes/index');
+var dataforreg = require('./routes/dataforreg');
+var index = require('./routes/index');
+var voting = require('./routes/voting');
+
 
 
 //App Set//
@@ -34,9 +37,16 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//App Routes//
+
+
+
+
+        //App Routes//
+
+app.use('/voting', voting);
 app.use('/register', register);
 app.use('/user', user);
+app.use('/dataforreg', dataforreg);
 app.use('/data', data);
 app.use('/', index);
 

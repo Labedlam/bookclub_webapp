@@ -17,6 +17,12 @@ myApp.config(['$routeProvider', function($routeProvider){
             templateUrl: "/assets/views/routes/footerRoute.html",
             controller: "AnotherController"
         })
+        //.when('/register', {
+        //    templateUrl: "/assets/views/templates/register.html",
+        //    controller: "Register"
+        //})
 
         .otherwise('/headerRoute');
+
+    console.log("Ya done know im app.js");
 }]);

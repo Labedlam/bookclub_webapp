@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myReg">
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
 
-    <link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="/assets/styles/style.css">
+
 </head>
 <body>
 <div class="instructions">
@@ -13,9 +14,10 @@
         <h1 class="lead">Register New User</h1>
     </div>
 </div>
-
+<
+</div>
 <div class="container">
-    <form action="/register" method="post">
+    <form action="/register" method="post" class="simple-form">
         <div>
             <label for="username">Username:</label>
             <input type="text" name="username" id="username">
@@ -37,9 +39,40 @@
             <label for="email">Email:</label>
             <input type="email" name="email" id="email">
         </div>
+        <div>
+            <label for="bookClubNameOptions">Choose a Book Club</label>
+            <select ng-options="infobookclub in bookclub" ng-model="infobookclub" id="bookClubNameOptions"></select>
+
+            <label for="bookClubName">Enter the Name of your Book Club</label>
+            <input type="text" name="bookClubName" id="bookClubName">
+        </div>
+
+        <div>
+            <h5>Type in the book information you want your book club to read </h5>
+            <label for="bookTitle">Type in the Book Title</label>
+            <input type="text" name="bookTitle" id="bookTitle">
+
+            <label for="bookAuthor">Type in Author of Book</label>
+            <input type="text" name="bookAuthor" id="bookAuthor">
+
+            <label for="bookSummary">Type in Quik Summary of Book</label>
+            <input type="text" name="bookSummary" id="bookSummary">
+
+        </div>
+
+        <div>
+            <h5>Type in Where you would like the bookclub to meet </h5>
+            <label for="locationName">Name of Location you want book club to be</label>
+            <input type="text" name="locationName" id="locationName">
+
+            <label for="locationAddress">Type in address of location</label>
+            <input type="text" name="locationAddress" id="locationAddress">
+
+        </div>
 
         <input type="submit" value="Register"/>
     </form>
 </div>
+
 </body>
 </html>

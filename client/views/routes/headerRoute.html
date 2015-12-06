@@ -3,13 +3,16 @@
     <p>Vote for A book</p>
 </div>
 
-
-    <div ng-repeat="person in bookclub" flex="100" layout="column">
-        <md-card ng-class="{selected: $index==selectedIndex}" ng-repeat="member in person.bookclub_members track by $index" >
+    <!--ng-repeat="member in bookclub track by $index-->
+    <!--ng-class="{selected: $index==selectedIndex}"-->
+    <div layout="column">
+        <md-card ng-model="member"  ng-repeat="member in users track by $index" ng-class="{selected: $index==selectedIndex}">
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-headline">{{member.member_name}}</span>
-                    <span class="md-subhead">title:{{member.member_book_selection.book_name}}</span>
+                    <span class="md-headline">User Name:  {{member.username}}<br></span>
+                    <span class="md-subhead">Book title:  {{member.prefBook[0].title}}<br></span>
+                    <span class="md-subhead">Book Author:  {{member.prefBook[0].author}}<br></span>
+                    <span class="md-subhead">Book Summary:  {{member.prefBook[0].summary}}<br></span>
                 </md-card-title-text>
                 <md-card-title-media>
                     <div class="md-media-sm card-media"></div>
@@ -18,7 +21,7 @@
             <md-card-actions>
 
                 <div layout-fill layout="column"  class="inset" >
-                    <md-button   ng-click="showActionToast($index)" >Vote</md-button>
+                    <md-button   ng-click="showActionToast(member.prefBook,$index)" >Vote</md-button>
                     <div id="toastBounds">
                     </div>
                 </div>

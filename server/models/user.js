@@ -6,16 +6,41 @@ var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt');
 var SALT_WORK_FACTOR = 10;
 
+
+//Create User Schema
 var UserSchema = new Schema({
     username: {type: String, required: true, index: {unique: true}},
     password: {type: String, required: true},
     firstName: {type:String, required: true},
     lastName: {type:String, required: true},
-    email: {type:String, required: true}
+    email: {type:String},
 
+    bookclubName_id:{type:mongoose.Schema.Types.ObjectId, ref:'BookClub'},
+    votePrefBook: {type:Boolean},
+
+    booksLiked:[{type:Array}],
+    locationsLiked:{type:Array},
+
+
+    prefBook:[
+        {
+            title: {type:String},
+            author:{type:String},
+            summary:{type:String}
+        }
+    ],
+    prefLocation:[
+        {
+            locationAddress: {type:String},
+            locationName:{type:String}
+        }
+    ]
+    //{locationName:String, locationAddress:String}
 });
 
+
 UserSchema.pre('save', function(next){
+
     var user = this;
 
     if(!user.isModified('password')) return next;
@@ -31,6 +56,7 @@ UserSchema.pre('save', function(next){
         });
     });
 });
+
 
 UserSchema.methods.comparePassword = function(candidatePassword, cb){
     bcrypt.compare(candidatePassword, this.password, function(err, isMatch){
