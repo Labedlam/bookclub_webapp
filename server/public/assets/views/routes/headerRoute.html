@@ -1,12 +1,14 @@
 <div class="container">
-<div class="text-center">
-    <p>Vote for A book</p>
-</div>
+
 
     <!--ng-repeat="member in bookclub track by $index-->
     <!--ng-class="{selected: $index==selectedIndex}"-->
     <div layout="column">
-        <md-card ng-model="member"  ng-repeat="member in users track by $index" ng-class="{selected: $index==selectedIndex}">
+
+        <md-card ng-model="member"  ng-repeat="member in users track by $index" ng-class="{selected: $index==selectedIndex}" ng-show="show" class="ng-hide" >
+            <div class="text-center">
+                <p>Vote for A book</p>
+            </div>
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">User Name:  {{member.username}}<br></span>
@@ -30,16 +32,44 @@
 
             </md-card-actions>
         </md-card>
-        <md-card>
+
+    </div>
+
+    <div layout="column">
+        <!--ng-repeat="book in userVoteBookChoice"-->
+
+        <md-card ng-model="bookmodel"   ng-show="showresult" class="ng-hide" >
+            <div class="text-center">
+                <h1>Your Vote has Been Cast!!!</h1>
+            </div>
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">YOU HAVE VOTED FOR {{userVoteBookChoice.votedBook.title}} TO BE THE BOOK OF THE MONTH  <br></span>
+                    <span class="md-subhead">Book title:  {{userVoteBookChoice.votedBook.title}}<br></span>
+                    <span class="md-subhead">Book Author:  {{userVoteBookChoice.votedBook.author}}<br></span>
+                    <span class="md-subhead">Book Summary:  {{userVoteBookChoice.votedBook.summary}}<br></span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <div class="md-media-sm card-media"></div>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions>
+
+                <!--<div layout-fill layout="column"  class="inset" >-->
+                    <!--<md-button   ng-click="showActionToast(member.prefBook,$index)" >Vote</md-button>-->
+                    <!--<div id="toastBounds">-->
+                    <!--</div>-->
+                <!--</div>-->
 
 
-<!--<div ng-repeat="person in bookclub">-->
-    <!--<div class="row">-->
-        <!--<p ng-repeat="member in person.bookclub_members">{{member.member_name}}</p>-->
+
+            </md-card-actions>
+        </md-card>
+
+    </div>
 
 
-    <!--</div>-->
-</div>
+
 </div>
 
 <!--for the md-card-action(it was there previously) =layout="row" layout-align="end center"-->

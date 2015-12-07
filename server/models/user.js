@@ -17,6 +17,13 @@ var UserSchema = new Schema({
 
     bookclubName_id:{type:mongoose.Schema.Types.ObjectId, ref:'BookClub'},
     votePrefBook: {type:Boolean},
+    votedBook:
+    {
+        title: {type:String},
+        author:{type:String},
+        summary:{type:String}
+
+    },
 
     booksLiked:[{type:Array}],
     locationsLiked:{type:Array},

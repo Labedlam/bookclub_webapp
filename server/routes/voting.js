@@ -12,28 +12,42 @@ var BookClub = require('../models/bookClub');
 mongoose.set('debug', true);
 
 
-//var to catch the users book club
-var usersBookClub='';
+// Get info on whether user has voted
+router.get('/checkuservote',function(req,res,next){
+    //console.log("what is checkuservote rqe ",req);
 
+    User.find({_id: req.user._id},'username prefBook prefLocation votePrefBook votedBook', function(err, data){
+        if(err){
+            console.log("ERROR! : ", err);
+        }
+        //console.log("checkuservote response data",data);
+        res.send(data);
+    });
+});
 
-
-//this gets the logged in user object
+//this sets the given user's votePrefBook to true to indicate that they have voted
 router.put('/loggedin', function(req,res,next) {
 
-
-    //usersBookClub=req.user.bookclubName_id;
-    //
-    //console.log("This is the logged in user object", req.body);
-    //
-    //console.log("where is the user", req.user);
-
-
-    User.findByIdAndUpdate(req.user._id, {$set: {votePrefBook: true}}, function (err, theUser) {
+    User.findByIdAndUpdate(req.user._id, {$set:{votePrefBook: true}}, function (err, theUser) {
         if (err) {
             console.log(err);
         } else {
+            //console.log("what is user theUser here?",theUser.votePrefBook);
+            res.send(theUser.votePrefBook);
+            next
+        }
+    });
+});
 
-
+//this sets the given user's voteBook to indicate which book this user voted for
+router.put('/uservotedbook', function(req,res,next) {
+    console.log("I'M IN THE USERVOTEDBOOK ROUT THIS IS REQ.BODY",req.body);
+    User.findByIdAndUpdate(req.user._id, {$set:{votedBook: req.body}}, function (err, theUser) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("You have added this to the votedBook key in the user object",req.body);
+            console.log("what is theUser in the votedbook route",theUser);
             res.send(theUser);
             next
         }
@@ -43,15 +57,9 @@ router.put('/loggedin', function(req,res,next) {
 
 
     router.put('/updatebook', function(req,res,next){
-        //{
-        //    book_id: {type:String},
-        //    numberOfVotes: Number
-        //}
-        var bookvotedOn=req.body.bookinfo;
 
 
-
-        console.log("In voting Route, he is what req is",req.body);
+        //console.log("In voting Route, he is what req is",req.body);
         //console.log("In voting Route book voted on, Updatebook", req.user);
 
 
@@ -62,7 +70,7 @@ router.put('/loggedin', function(req,res,next) {
 
 
                 res.send(theUser);
-                console.log("Things are going through");
+                //console.log("What is theUser in update book",theUser);
                 next
             }
 
@@ -72,25 +80,5 @@ router.put('/loggedin', function(req,res,next) {
 
 });
 
-console.log("does the userbookclub show up here", usersBookClub);
-// this updates the book collection with the book that the user has voted on
-//router.put('/updatebook', function(req,res,next){
-//
-//
-//
-//
-//    console.log("This is what is coming up to bookclub", req.body);
-//
-//
-//    BookClub.findByIdAndUpdate(req.user._id, {$set:{votePrefBook:true}},function(err,theUser){
-//        if(err){
-//            console.log(err);
-//        }else {
-//
-//
-//            res.send(theUser);
-//        }
-//    }) ;
-//});
 
 module.exports = router;
