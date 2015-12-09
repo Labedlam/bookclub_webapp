@@ -35,10 +35,15 @@
 
     </div>
 
-    <div layout="column">
+    <div layout="column" ng-show="showresult" class="ng-hide">
         <!--ng-repeat="book in userVoteBookChoice"-->
 
-        <md-card ng-model="bookmodel"   ng-show="showresult" class="ng-hide" >
+        <div>
+            <md-card>
+                <h1>Votes left for bookclub: {{numberOfVotesLeft}}</h1>
+            </md-card>
+        </div>
+        <md-card ng-model="bookmodel">
             <div class="text-center">
                 <h1>Your Vote has Been Cast!!!</h1>
             </div>
@@ -55,6 +60,8 @@
             </md-card-title>
             <md-card-actions>
 
+
+
                 <!--<div layout-fill layout="column"  class="inset" >-->
                     <!--<md-button   ng-click="showActionToast(member.prefBook,$index)" >Vote</md-button>-->
                     <!--<div id="toastBounds">-->
@@ -66,6 +73,10 @@
             </md-card-actions>
         </md-card>
 
+    </div>
+
+    <div class="jumbotron" ng-show="showWinner" class="ng-hide">
+        <h1>Book Club Choice</h1>
     </div>
 
 
