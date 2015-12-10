@@ -12,28 +12,39 @@
 </head>
 
 <body>
-<div class="instructions">
-    <div class="container">
-        <h1 class="lead">Passport Login</h1>
-    </div>
-</div>
-<div class="container">
-    <form action="/" method="post">
+
+<!--<div><img src="/data/images/bookandcoffee.jpg">-->
+
+
+
+
+
+
+    <div class="loginback">
+
+    <form class="form-signin" action="/" method="post">
+        <h1 class="form-signin-heading">Book Club</h1>
         <div>
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username"/>
+
+            <input class="form-control" type="text" name="username" id="username" placeholder="Username"/>
         </div>
         <div>
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password"/>
+
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password"/>
+
+
         </div>
         <div>
-            <input type="submit" value="Log In"/>
+
+        </div>
+        <div>
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Log In"/>
             <a href="/assets/views/register.html">Register</a>
         </div>
     </form>
+    </div>
 
-</div>
+
 </body>
 </html>
 

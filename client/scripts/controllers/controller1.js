@@ -205,20 +205,59 @@ myApp.controller('BaseController', ["$scope","$http", "DataService","DataService
                 } else {
                     console.log("not all users have voted");
                 }
-
+                winningBook(response.data[0].votesCastForBook);
             });
 
 };
 
 
 // See which book has the most votes
-    function winningBook(bookarray){
-        var i = bookarray.length;
-        while(i--){
+    function winningBook(bookarray) {
 
+        counter={};
+
+        bookarray.forEach(function(obj){
+            var key= JSON.stringify(obj);
+            counter[key] =(counter[key]|| 0)+1
+        });
+
+        console.log("here is counterkey", counter);
+     //var vote=[];
+     //
+     //   console.log("this is the book array going into winningbook",bookarray);
+     //   //make copy of the input array
+     //   var copy=bookarray.slice(0);
+     //       console.log("this is copy",copy);
+     //   //first loop goes over every element
+     //   for (var i = 0; i < bookarray.length; i++) {
+     //
+     //       var myCount = 0;
+     //       //loop over every element in the copy and see if it's the same
+     //       for (var j = 0; j < copy.length; j++) {
+     //           if (bookarray[i]._id == copy[j]._id) {
+     //
+     //               //increase amount of times duplicate is discovered
+     //               myCount++;
+     //              copy.splice(j,1);
+     //               //sets item to undefined
+     //               //delete copy[j];
+     //           }
+     //       }
+     //       if (myCount > 0) {
+     //           var a = new Object();
+     //           a.value = bookarray[i]._id;
+     //           a.count = myCount;
+     //           vote.push(a);
+     //
+     //           console.log("this is compressed", vote);
+     //       }
+     //   }
+        //console.log("this is copy[j]",copy[j]);
+        //console.log("this is book",bookarray[i]);
+        // return vote;
         };
 
-    };
+
 
  //function to change the value of PrefBook Vote to true in user collection document of logged in user
  //       $scope.prefBookVote = false;
